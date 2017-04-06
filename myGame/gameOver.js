@@ -14,8 +14,8 @@ create: function() {
     
     game.stage.backgroundColor = '#2d2d2d';
     
-    this.text = game.add.text(300, 250, "GAME OVER", { font: "32px Arial", fill: "#ffffff", align: "center" });
-    var text = game.add.text(340, 325, "RETRY", { font: "32px Arial", fill: "#ffffff", align: "center" });
+    this.text = game.add.text(575, 250, "GAME OVER", { font: "32px Arial", fill: "#ffffff", align: "center" });
+    var text = game.add.text(615, 325, "RETRY", { font: "32px Arial", fill: "#ffffff", align: "center" });
     
     text.inputEnabled = true;
     text.events.onInputDown.add(this.down, this);

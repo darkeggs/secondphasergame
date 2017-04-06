@@ -20,7 +20,7 @@ game_state.end.prototype = {
         
         this.text = game.add.text(20, 20, "Thank you for your help!\nI am now a ninja!", { font: "32px Arial", fill: "#ffffff"});
         
-        text = game.add.text(710, 550, "Next", { font: "32px Arial", fill: "#ffffff"});
+        text = game.add.text(1280, 550, "Next", { font: "32px Arial", fill: "#ffffff"});
         text.inputEnabled = true;
         text.events.onInputDown.add(this.down, this);
         player = game.add.sprite(277, game.world.height - 544, "dude");
@@ -32,7 +32,7 @@ game_state.end.prototype = {
         if (counter === 1) {
             this.text.text = "Credits\nGame Design - Marcelo\nMusic from Kirby and Sonic";
             text.text = "Play Again";
-            text.x = 625;
+            text.x = 1195;
             player.kill();
         } else if (counter === 2) {
             game.state.start("story");

@@ -19,7 +19,7 @@ game_state.story.prototype = {
         game.stage.backgroundColor = '2d2d2d';
         
         this.text = game.add.text(20, 20, "Hello!\nI am training to be a ninja!\nHelp me get through this obstacle course!", { font: "32px Arial", fill: "#ffffff"});
-        text = game.add.text(710, 550, "Next", { font: "32px Arial", fill: "#ffffff"});
+        text = game.add.text(1280, 550, "Next", { font: "32px Arial", fill: "#ffffff"});
         text.inputEnabled = true;
         text.events.onInputDown.add(this.down, this);
         player = game.add.sprite(400, game.world.height - 544, "dude");
@@ -44,4 +44,4 @@ game_state.story.prototype = {
 };
 
 game.state.add("story", game_state.story);
-game.state.start("story");
+//game.state.start("story");
