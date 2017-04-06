@@ -190,7 +190,7 @@ create: function() {
     bullets = game.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    bullets.createMultiple(10, "bullet");
+    bullets.createMultiple(100, "bullet");
     bullets.callAll("events.onOutOfBounds.add", "events.onOutOfBounds", this.resetBullet, this);
     bullets.setAll("checkWorldBounds", true);
 
@@ -263,6 +263,7 @@ resetBullet: function (bullet) {
 },
 
 gameOver: function () {
+    music.mute = true;
     game.state.start("gameOverThree");
 },
 
