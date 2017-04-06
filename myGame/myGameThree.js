@@ -1,6 +1,7 @@
 /*global Phaser*/
 /*global game_state*/
 /*global game*/
+/*global musicThree*/
 
 game_state.mainThree = function () {};
 
@@ -14,7 +15,7 @@ var bulletTime = 0;
 
 var win;
 
-var music;
+var musicThree;
 
 game_state.mainThree.prototype = {
 
@@ -33,15 +34,15 @@ preload: function() {
     game.load.image("blockD", "assets/blockD.png");
     game.load.spritesheet("dude", "assets/ninjaB.png", 27, 34);
     game.load.spritesheet("baddie", "assets/baddie.png", 32, 31.75);
-    game.load.audio("music", ["assets/audio/songThree.mp3"]);
+    game.load.audio("musicThree", ["assets/audio/songThree.mp3"]);
 },
 
 create: function() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.world.setBounds(0, 0, 12400, 600);
     
-    music = game.add.audio("music");
-    music.play();
+    musicThree = game.add.audio("musicThree");
+    musicThree.play();
 
     for (var i = 0; i < 16; i++) {
         game.add.sprite(800 * i, 0, "sky");
@@ -263,12 +264,12 @@ resetBullet: function (bullet) {
 },
 
 gameOver: function () {
-    music.mute = true;
+    musicThree.mute = true;
     game.state.start("gameOverThree");
 },
 
 end: function () {
-    music.mute = true;
+    musicThree.mute = true;
     game.state.start("mainFour");
 }
 

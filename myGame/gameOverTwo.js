@@ -1,6 +1,7 @@
 /*global Phaser*/
 /*global game_state*/
 /*global game*/
+/*global musicTwo*/
 
 game_state.gameOverTwo = function() {};
 game_state.gameOverTwo.prototype = {
@@ -21,9 +22,11 @@ create: function() {
 },
 
 update: function() {
+    musicTwo.mute = true;
 },
 
 down: function() {
+    musicTwo.mute = true;
     game.state.start("mainTwo");
 }
 

@@ -1,6 +1,7 @@
 /*global Phaser*/
+/*global music*/
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '');
+var game = new Phaser.Game(1366, 600, Phaser.AUTO, '');
 var game_state = {};
 
 game_state.main = function () {};

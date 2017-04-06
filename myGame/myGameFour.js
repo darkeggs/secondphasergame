@@ -1,6 +1,7 @@
 /*global Phaser*/
 /*global game_state*/
 /*global game*/
+/*global musicFour*/
 
 game_state.mainFour = function () {};
 
@@ -28,7 +29,7 @@ var bulletTime = 0;
 
 var win;
 
-var music;
+var musicFour;
 
 game_state.mainFour.prototype = {
 
@@ -48,15 +49,15 @@ preload: function() {
     game.load.image("lava", "assets/lava.png");
     game.load.spritesheet("dude", "assets/ninjaB.png", 27, 34);
     game.load.spritesheet("baddie", "assets/baddie.png", 32, 31.75);
-    game.load.audio("music", ["assets/audio/songFour.mp3"]);
+    game.load.audio("musicFour", ["assets/audio/songFour.mp3"]);
 },
 
 create: function() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.world.setBounds(0, 0, 12032, 600);
     
-    music = game.add.audio("music");
-    music.play();
+    musicFour = game.add.audio("musicFour");
+    musicFour.play();
 
     for (var i = 0; i < 16; i++) {
         game.add.sprite(800 * i, 0, "sky");
@@ -414,12 +415,12 @@ resetBullet: function (bullet) {
 },
 
 gameOver: function () {
-    music.mute = true;
+    musicFour.mute = true;
     game.state.start("gameOverFour");
 },
 
 end: function () {
-    music.mute = true;
+    musicFour.mute = true;
     game.state.start("end");
 }
 

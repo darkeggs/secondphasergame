@@ -4,6 +4,7 @@
 
 game_state.end = function() {};
 
+var counter = 0;
 var text;
 var player;
 
@@ -19,18 +20,27 @@ game_state.end.prototype = {
         
         this.text = game.add.text(20, 20, "Thank you for your help!\nI am now a ninja!", { font: "32px Arial", fill: "#ffffff"});
         
-        text = game.add.text(630, 550, "Play Again", { font: "32px Arial", fill: "#ffffff"});
+        text = game.add.text(710, 550, "Next", { font: "32px Arial", fill: "#ffffff"});
         text.inputEnabled = true;
         text.events.onInputDown.add(this.down, this);
         player = game.add.sprite(277, game.world.height - 544, "dude");
+        counter = 0;
     },
     
     update: function() {
         player.frame = 4;
+        if (counter === 1) {
+            this.text.text = "Credits\nGame Design - Marcelo\nMusic from Kirby and Sonic";
+            text.text = "Play Again";
+            text.x = 625;
+            player.kill();
+        } else if (counter === 2) {
+            game.state.start("story");
+        }
     },
     
     down: function() {
-        game.state.start("story");
+        counter++;
     }
     
 };

@@ -1,6 +1,7 @@
 /*global Phaser*/
 /*global game_state*/
 /*global game*/
+/*global musicThree*/
 
 game_state.gameOverThree = function() {};
 game_state.gameOverThree.prototype = {
@@ -21,9 +22,11 @@ create: function() {
 },
 
 update: function() {
+    musicThree.mute = true;
 },
 
 down: function() {
+    musicThree.mute = true;
     game.state.start("mainThree");
 }
 
