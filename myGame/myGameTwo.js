@@ -627,6 +627,23 @@ update: function() {
     }
 },
 
+fireBullet: function () {
+    if (game.time.now > bulletTime) {
+        bullet = bullets.getFirstExists(false);
+        if (bullet) {
+            if (direction === "left") {
+                bullet.reset(player.x - 16, player.y);
+                bullet.body.velocity.x = -500;
+                bulletTime = game.time.now + 250;
+            } else {
+                bullet.reset(player.x + 9, player.y);
+                bullet.body.velocity.x = 500;
+                bulletTime = game.time.now + 250;
+            }
+        }
+    }
+},
+
 resetBullet: function (bullet) {
     bullet.kill();
 },

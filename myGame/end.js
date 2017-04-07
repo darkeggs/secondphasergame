@@ -46,4 +46,4 @@ game_state.end.prototype = {
 };
 
 game.state.add("end", game_state.end);
-game.state.start("end");
+//game.state.start("end");
