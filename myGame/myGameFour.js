@@ -1,6 +1,10 @@
 /*global Phaser*/
 /*global game_state*/
 /*global game*/
+/*global music*/
+/*global musicTwo*/
+/*global musicThree*/
+/*global musicFour*/
 
 game_state.mainFour = function () {};
 
@@ -28,7 +32,7 @@ var bulletTime = 0;
 
 var win;
 
-var music;
+var musicFour;
 
 game_state.mainFour.prototype = {
 
@@ -48,15 +52,20 @@ preload: function() {
     game.load.image("lava", "assets/lava.png");
     game.load.spritesheet("dude", "assets/ninjaB.png", 27, 34);
     game.load.spritesheet("baddie", "assets/baddie.png", 32, 31.75);
-    game.load.audio("music", ["assets/audio/songFour.mp3"]);
+    game.load.audio("musicFour", ["assets/audio/songFour.mp3"]);
 },
 
 create: function() {
+	this.oneKey = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
+	this.twoKey = game.input.keyboard.addKey(Phaser.Keyboard.TWO);
+	this.threeKey = game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+	this.fourKey = game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
+	
     game.physics.startSystem(Phaser.Physics.ARCADE);
     game.world.setBounds(0, 0, 12032, 600);
     
-    music = game.add.audio("music");
-    music.play();
+    musicFour = game.add.audio("musicFour");
+    musicFour.play();
 
     for (var i = 0; i < 16; i++) {
         game.add.sprite(800 * i, 0, "sky");
@@ -274,6 +283,37 @@ create: function() {
 },
 
 update: function() {
+    if (this.oneKey.isDown) {
+        game.state.start("main");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+    }
+    
+    if (this.twoKey.isDown) {
+        game.state.start("mainTwo");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+    }
+    
+    if (this.threeKey.isDown) {
+        game.state.start("mainThree");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+    }
+    
+    if (this.fourKey.isDown) {
+        game.state.start("mainFour");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+    }    
     game.physics.arcade.collide(player, this.platforms);
     game.physics.arcade.collide(player, this.lava, this.gameOver, null);
     game.physics.arcade.collide(player, this.win, this.end, null);
@@ -414,11 +454,18 @@ resetBullet: function (bullet) {
 },
 
 gameOver: function () {
+    music.mute = true;
+    musicTwo.mute = true;
+    musicThree.mute = true;
+    musicFour.mute = true;
     game.state.start("gameOverFour");
 },
 
 end: function () {
     music.mute = true;
+    musicTwo.mute = true;
+    musicThree.mute = true;
+    musicFour.mute = true;
     game.state.start("end");
 }
 

@@ -1,4 +1,8 @@
 /*global Phaser*/
+/*global music*/
+/*global musicTwo*/
+/*global musicThree*/
+/*global musicFour*/
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '');
 var game_state = {};
@@ -235,7 +239,11 @@ create: function() {
     win.body.immovable = true;
 
     this.cursors = game.input.keyboard.createCursorKeys();
-	this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACE);
+	this.oneKey = game.input.keyboard.addKey(Phaser.Keyboard.ONE);
+	this.twoKey = game.input.keyboard.addKey(Phaser.Keyboard.TWO);
+	this.threeKey = game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+	this.fourKey = game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
 },
 
 update: function() {
@@ -275,6 +283,39 @@ update: function() {
 
     if (this.spaceKey.isDown) {
         this.fireBullet();
+    }
+    
+    if (this.oneKey.isDown) {
+        game.state.start("main");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+
+    }
+    
+    if (this.twoKey.isDown) {
+        game.state.start("mainTwo");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+    }
+    
+    if (this.threeKey.isDown) {
+        game.state.start("mainThree");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
+    }
+    
+    if (this.fourKey.isDown) {
+        game.state.start("mainFour");
+        music.mute = true;
+        musicTwo.mute = true;
+        musicThree.mute = true;
+        musicFour.mute = true;
     }
     
     if (enemy.x >= 5600 && directionB === "left") {
@@ -348,11 +389,18 @@ killEnemyB: function () {
 },
 
 gameOver: function () {
+    music.mute = true;
+    musicTwo.mute = true;
+    musicThree.mute = true;
+    musicFour.mute = true;
     game.state.start("gameOver");
 },
 
 end: function () {
     music.mute = true;
+    musicTwo.mute = true;
+    musicThree.mute = true;
+    musicFour.mute = true;
     game.state.start("mainTwo");
 }
 
