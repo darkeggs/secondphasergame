@@ -444,35 +444,23 @@ create: function() {
 
 update: function() {
     if (this.oneKey.isDown) {
-        game.state.start("main");
-        music.mute = true;
         musicTwo.mute = true;
-        musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("main");
     }
     
     if (this.twoKey.isDown) {
-        game.state.start("mainTwo");
-        music.mute = true;
         musicTwo.mute = true;
-        musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("mainTwo");
     }
     
     if (this.threeKey.isDown) {
-        game.state.start("mainThree");
-        music.mute = true;
         musicTwo.mute = true;
-        musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("mainThree");
     }
     
     if (this.fourKey.isDown) {
-        game.state.start("mainFour");
-        music.mute = true;
         musicTwo.mute = true;
-        musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("mainFour");
     }
     
     game.physics.arcade.collide(player, this.platforms);
@@ -639,23 +627,6 @@ update: function() {
     }
 },
 
-fireBullet: function () {
-    if (game.time.now > bulletTime) {
-        bullet = bullets.getFirstExists(false);
-        if (bullet) {
-            if (direction === "left") {
-                bullet.reset(player.x - 16, player.y);
-                bullet.body.velocity.x = -500;
-                bulletTime = game.time.now + 250;
-            } else {
-                bullet.reset(player.x + 9, player.y);
-                bullet.body.velocity.x = 500;
-                bulletTime = game.time.now + 250;
-            }
-        }
-    }
-},
-
 resetBullet: function (bullet) {
     bullet.kill();
 },
@@ -681,18 +652,12 @@ killEnemyE: function () {
 },
 
 gameOver: function () {
-    music.mute = true;
     musicTwo.mute = true;
-    musicThree.mute = true;
-    musicFour.mute = true;
     game.state.start("gameOverTwo");
 },
 
 end: function () {
-    music.mute = true;
     musicTwo.mute = true;
-    musicThree.mute = true;
-    musicFour.mute = true;
     game.state.start("mainThree");
 }
 

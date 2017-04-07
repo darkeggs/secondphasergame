@@ -220,35 +220,23 @@ create: function() {
 
 update: function() {
     if (this.oneKey.isDown) {
-        game.state.start("main");
-        music.mute = true;
-        musicTwo.mute = true;
         musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("main");
     }
     
     if (this.twoKey.isDown) {
-        game.state.start("mainTwo");
-        music.mute = true;
-        musicTwo.mute = true;
         musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("mainTwo");
     }
     
     if (this.threeKey.isDown) {
-        game.state.start("mainThree");
-        music.mute = true;
-        musicTwo.mute = true;
         musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("mainThree");
     }
     
     if (this.fourKey.isDown) {
-        game.state.start("mainFour");
-        music.mute = true;
-        musicTwo.mute = true;
         musicThree.mute = true;
-        musicFour.mute = true;
+        game.state.start("mainFour");
     }    
     game.physics.arcade.collide(player, this.platforms);
     game.physics.arcade.collide(player, this.lava, this.gameOver, null);
@@ -303,18 +291,12 @@ resetBullet: function (bullet) {
 },
 
 gameOver: function () {
-    music.mute = true;
-    musicTwo.mute = true;
     musicThree.mute = true;
-    musicFour.mute = true;
     game.state.start("gameOverThree");
 },
 
 end: function () {
-    music.mute = true;
-    musicTwo.mute = true;
     musicThree.mute = true;
-    musicFour.mute = true;
     game.state.start("mainFour");
 }
 
