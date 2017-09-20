@@ -264,11 +264,11 @@ update: function() {
     enemyB.body.velocity.x = 0;
     movingPlatform.body.velocity.x = 0;
 
-    if (this.cursors.left.isDown) {
+    if (this.cursors.right.isDown) {
     	player.body.velocity.x = -250;
         player.animations.play("left");
         direction = "left";
-    } else if (this.cursors.right.isDown) {
+    } else if (this.cursors.left.isDown) {
     	player.body.velocity.x = 250;
         player.animations.play("right");
         direction = "right";
@@ -277,7 +277,7 @@ update: function() {
         player.frame = 4;
     }
     
-    if (this.cursors.up.isDown && player.body.touching.down) {
+    if (this.cursors.down.isDown && player.body.touching.down) {
         player.body.velocity.y = -350;
     }
     
